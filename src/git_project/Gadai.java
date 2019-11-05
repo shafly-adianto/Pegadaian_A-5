@@ -2,12 +2,24 @@ package git_project;
 
 public class Gadai {
 	private String nama, productCategory, description, status;
-	private	int id, price;
+	private	int id, price, hutang;
 	
 	public Gadai() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
+	public Gadai(String nama, String productCategory, String description, String status, int id, int price,
+			int hutang) {
+		super();
+		this.nama = nama;
+		this.productCategory = productCategory;
+		this.description = description;
+		this.status = status;
+		this.id = id;
+		this.price = price;
+		this.hutang = hutang;
+	}
+
 	public String getNama() {
 		return nama;
 	}
@@ -53,6 +65,14 @@ public class Gadai {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public int getHutang() {
+		return hutang;
+	}
+
+	public void setHutang(int hutang) {
+		this.hutang = hutang;
 	}
 
 /*	public String getInfoAll() {
