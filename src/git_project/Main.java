@@ -8,6 +8,58 @@ public class Main {
 	Gadai gd = new Gadai();
 	ArrayList<Gadai> data_gadai = new ArrayList<>();
 	
+	public void inputGadai() {
+		input.nextLine();
+		String nama, productCategory, description;
+		int price, id;
+		boolean valid = false;
+	
+		do {
+			System.out.print("Nama :");
+			nama = input.nextLine();
+			
+			if (nama.length() >= 3 && nama.length() <= 15) {
+				gd.setNama(nama);
+				valid = true;
+			}
+		} while (!valid);
+		
+		do {
+			valid = false;
+			System.out.print("Product Category :");
+			productCategory = input.nextLine();
+			
+			if (productCategory.equalsIgnoreCase("laptop") || productCategory.equalsIgnoreCase("motor") || productCategory.equalsIgnoreCase("emas")) {
+				gd.setProductCategory(productCategory);
+				valid = true;
+			}
+		} while (!valid);
+		
+		do {
+			valid = false;
+			System.out.print("Description :");
+			description = input.nextLine();
+			
+			if (description.indexOf(" ") >= 1) {
+				gd.setDescription(description);
+				valid = true;
+			}
+		} while (!valid);
+		
+		do {
+			valid = false;
+			System.out.print("Price :");
+			price = input.nextInt();
+			
+			if (price%10000 == 0) {
+				gd.setPrice(price);
+				valid = true;
+			}
+		} while (!valid);
+		id = data_gadai.size() +1;
+		data_gadai.add(new Gadai(nama, productCategory, description, "Gadai", id, price, price));
+	}
+	
 	public static void main(String[] args) {
 		input = new Scanner(System.in);
 		boolean valid;
@@ -37,7 +89,8 @@ public class Main {
 	public void inputan(int nomor) {
 		switch(nomor) {
 		case 1:
-			
+			System.out.println("Gadai");
+			main.inputGadai();
 			break;
 		case 2:
 			
