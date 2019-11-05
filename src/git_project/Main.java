@@ -2,7 +2,62 @@ package git_project;
 import java.util.Scanner;
 
 public class Main {
-	private static Scanner input;
+	static Main main = new Main();
+	static Scanner input = new Scanner(System.in);
+	Gadai gd = new Gadai();
+	
+	public void inputGadai() {
+		String nama, productCategory, description;
+		int price;
+		boolean valid = false;
+	
+		do {
+			input.nextLine();
+			System.out.print("Nama :");
+			nama = input.nextLine();
+			
+			if (nama.length() >= 3 && nama.length() <= 15) {
+				gd.setNama(nama);
+				valid = true;
+			}
+		} while (!valid);
+		
+		do {
+			valid = false;
+			System.out.print("Product Category :");
+			productCategory = input.nextLine();
+			
+			if (productCategory.equalsIgnoreCase("laptop") || productCategory.equalsIgnoreCase("motor") || productCategory.equalsIgnoreCase("emas")) {
+				gd.setProductCategory(productCategory);
+				valid = true;
+			}
+		} while (!valid);
+		
+		do {
+			valid = false;
+			System.out.print("Description :");
+			description = input.nextLine();
+			
+			if (description.indexOf(" ") >= 1) {
+				gd.setDescription(description);
+				valid = true;
+			}
+		} while (!valid);
+		
+		do {
+			valid = false;
+			System.out.print("Price :");
+			price = input.nextInt();
+			
+			if (price%10000 == 0) {
+				gd.setPrice(price);
+				valid = true;
+			}
+		} while (!valid);
+		
+	}
+	
+
 	
 	public static void main(String[] args) {
 		input = new Scanner(System.in);
@@ -20,7 +75,7 @@ public class Main {
 				try {
 					System.out.print("\n\nMasukan nomor program: ");
 					int nomor = input.nextInt();
-					inputan(nomor);
+					main.inputan(nomor);
 				}
 				catch(Exception e){
 					valid = false;
@@ -31,10 +86,11 @@ public class Main {
 		}
 	}
 	
-	public static void inputan(int nomor) {
+	public void inputan(int nomor) {
 		switch(nomor) {
 		case 1:
-			System.out.print("Gadai");
+			main.inputGadai();
+			System.out.println(gd.getPrice());
 			break;
 		case 2:
 			System.out.print("Tebus");
