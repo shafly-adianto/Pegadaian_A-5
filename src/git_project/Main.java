@@ -44,6 +44,7 @@ public class Main {
 			break;
 		case 4:
 			System.out.print("Exit");
+			System.exit(0);
 			break;
 		default:
 			System.out.print("Nomor program tidak ada");
