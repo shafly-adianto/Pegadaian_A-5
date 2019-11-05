@@ -65,22 +65,6 @@ public class Main {
 		data_gadai.add(new Gadai(nama, productCategory, description, "Gadai", id, price, price));
 	}
 	
-	public void showTebus() {
-		int id, biaya;
-		int checkId =0 , checkBiaya =0;
-		boolean valid;
-		
-		String header = "|"+centerString(8, "Id")+"|"+centerString(12, "Produk")+"|"+centerString(12, "Price")+"|"+centerString(12, "Status")+"|"+centerString(12, "Utang")+"|";
-		String caption = "|"+centerString(header.length()-2, "LIST GADAI")+"|";
-		String line = "";
-		String stripe = "";
-		
-		for (int i = 0; i < caption.length(); i++) {
-			line+="=";
-			if (i>1) {
-				stripe+="-";
-			}
-		}	
 		
 		if (data_gadai.isEmpty()==true) {
 			System.out.println("Data gadai kosong, silahkan input gadai terlebih dulu.");
