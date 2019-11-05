@@ -3,15 +3,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-<<<<<<< Updated upstream
-	private static Scanner input;
-=======
 	static Main main = new Main();
 	static Scanner input = new Scanner(System.in);
 	Gadai gd = new Gadai();
 	ArrayList<Gadai> data_gadai = new ArrayList<Gadai>();
 	private boolean valid = false;
->>>>>>> Stashed changes
 	
 	public static void main(String[] args) {
 		input = new Scanner(System.in);
@@ -29,11 +25,7 @@ public class Main {
 				try {
 					System.out.print("\n\nMasukan nomor program: ");
 					int nomor = input.nextInt();
-<<<<<<< Updated upstream
-					inputan(nomor);
-=======
 					main.inputan(nomor);
->>>>>>> Stashed changes
 				}
 				catch(Exception e){
 					valid = false;
@@ -41,8 +33,6 @@ public class Main {
 					input = new Scanner(System.in);
 				}
 			}while(!valid);
-<<<<<<< Updated upstream
-=======
 		}
 	}
 	
@@ -153,36 +143,14 @@ public class Main {
 		for(Gadai data:data_gadai) {
 			data.getInfo();
 			System.out.print("\n");
->>>>>>> Stashed changes
 		}
 		System.out.println("------------------------------------------------------------------------------------------------------------");
 	}
 	
-<<<<<<< Updated upstream
-	public static void inputan(int nomor) {
-		switch(nomor) {
-		case 1:
-			System.out.print("Gadai");
-			break;
-		case 2:
-			System.out.print("Tebus");
-			break;
-		case 3:
-			System.out.print("Tampilkan Inventory");
-			break;
-		case 4:
-			System.out.print("Exit");
-			System.exit(0);
-			break;
-		default:
-			System.out.print("Nomor program tidak ada");
-			break;
-=======
 	public int cek_id(int id) {
 		int counter = 0;
 		for(Gadai data:data_gadai) {
 			if(data.getId()==id) counter++;
->>>>>>> Stashed changes
 		}
 		
 		return counter;
@@ -190,5 +158,6 @@ public class Main {
 	
 	public void change_stats(int id, int price) {
 		
+		main.show_gadai();
 	}
 }
