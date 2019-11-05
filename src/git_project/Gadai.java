@@ -1,44 +1,62 @@
 package git_project;
 
 public class Gadai {
-
-	String name, prodCat, desc;
-	float price;
-
+	private String nama, productCategory, description, status;
+	private	int id, price;
+	
 	public Gadai() {
-		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public String getNama() {
+		return nama;
+	}
+	public void setNama(String nama) {
+		this.nama = nama;
+	}
+	
+	public String getProductCategory() {
+		return productCategory;
 	}
 
-	public String getName() {
-		return name;
+	public void setProductCategory(String productCategory) {
+		this.productCategory = productCategory;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getDescription() {
+		return description;
 	}
 
-	public String getProdCat() {
-		return prodCat;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public void setProdCat(String prodCat) {
-		this.prodCat = prodCat;
+	public String getStatus() {
+		return status;
 	}
 
-	public String getDesc() {
-		return desc;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public int getId() {
+		return id;
 	}
 
-	public float getPrice() {
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
-	
+
+/*	public String getInfoAll() {
+		return nama;
+	}*/
+
 }
