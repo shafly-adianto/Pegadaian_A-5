@@ -128,7 +128,7 @@ public class Main {
 		int hitungBarang = 0;
 		for (Gadai gadai : data_gadai) {
 			if (gadai.getStatus().equalsIgnoreCase("gadai")) {
-				
+				hitungBarang+=1;
 				System.out.println(gadai.getNama()+" "+gadai.getProductCategory()+" "+gadai.getDescription()+" "+gadai.getPrice());
 			}
 		}
