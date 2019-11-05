@@ -124,6 +124,16 @@ public class Main {
 				}
 			}
 		}
+	public void showInventori() {
+		int hitungBarang = 0;
+		for (Gadai gadai : data_gadai) {
+			if (gadai.getStatus().equalsIgnoreCase("gadai")) {
+				
+				System.out.println(gadai.getNama()+" "+gadai.getProductCategory()+" "+gadai.getDescription()+" "+gadai.getPrice());
+			}
+		}
+		
+	}
 
 	public static void main(String[] args) {
 		input = new Scanner(System.in);
