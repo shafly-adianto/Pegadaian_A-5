@@ -65,6 +65,22 @@ public class Main {
 		data_gadai.add(new Gadai(nama, productCategory, description, "Gadai", id, price, price));
 	}
 	
+	public void showTebus() {
+		int id, biaya;
+		int checkId =0 , checkBiaya =0;
+		boolean valid;
+		
+		String header = "|"+centerString(8, "Id")+"|"+centerString(15, "Produk")+"|"+centerString(15, "Price")+"|"+centerString(12, "Status")+"|"+centerString(15, "Utang")+"|";
+		String caption = "|"+centerString(header.length()-2, "LIST GADAI")+"|";
+		String line = "";
+		String stripe = "";
+		
+		for (int i = 0; i < caption.length(); i++) {
+			line+="=";
+			if (i>1) {
+				stripe+="-";
+			}
+		}	
 		
 		if (data_gadai.isEmpty()==true) {
 			System.out.println("Data gadai kosong, silahkan input gadai terlebih dulu.");
@@ -73,7 +89,8 @@ public class Main {
 			System.out.println("\n"+line);
 			System.out.println(caption+"\n|"+stripe+"|\n"+header+"\n|"+stripe+"|");
 			for (Gadai gadai : data_gadai) {
-				System.out.println(gadai.getId()+" "+gadai.getProductCategory()+" "+ gadai.getPrice()+" "+gadai.getStatus()+" "+gadai.getHutang());
+				System.out.println("|"+centerString(8, Integer.toString(gadai.getId()))+"|"+centerString(15, gadai.getProductCategory())+"|"+ 
+						centerString(15, Integer.toString(gadai.getPrice()))+"|"+centerString(12, gadai.getStatus())+"|"+centerString(15, Integer.toString(gadai.getHutang()))+"|");
 			}
 			System.out.println(line+"\n");
 			
@@ -123,9 +140,9 @@ public class Main {
 			
 			System.out.println("\n"+line);
 			System.out.println(caption+"\n|"+stripe+"|\n"+header+"\n|"+stripe+"|");
-			System.out.println(line+"\n");
 			for (Gadai gadai : data_gadai) {
-				System.out.println(gadai.getId()+" "+gadai.getProductCategory()+" "+ gadai.getPrice()+" "+gadai.getStatus()+" "+gadai.getHutang());
+				System.out.println("|"+centerString(8, Integer.toString(gadai.getId()))+"|"+centerString(15, gadai.getProductCategory())+"|"+ 
+						centerString(15, Integer.toString(gadai.getPrice()))+"|"+centerString(12, gadai.getStatus())+"|"+centerString(15, Integer.toString(gadai.getHutang()))+"|");
 			}
 			System.out.println(line+"\n");
 		}
@@ -148,11 +165,10 @@ public class Main {
 		
 		System.out.println("\n"+line);
 		System.out.println(caption+"\n|"+stripe+"|\n"+header+"\n|"+stripe+"|");
-		System.out.println(line+"\n");
 		for (Gadai gadai : data_gadai) {
 			if (gadai.getStatus().equalsIgnoreCase("gadai")) {
 				hitungBarang+=1;
-				System.out.println(gadai.getNama()+" "+gadai.getProductCategory()+" "+gadai.getDescription()+" "+gadai.getPrice());
+				System.out.println("|"+centerString(8, Integer.toString(gadai.getId()))+"|"+centerString(20, gadai.getNama())+"|"+centerString(15, gadai.getProductCategory())+"|"+centerString(25, gadai.getDescription())+"|"+centerString(15, Integer.toString(gadai.getPrice()))+"|");
 			}
 		}
 		System.out.println(line+"\n");
