@@ -135,7 +135,7 @@ public class Main {
 		int hitungBarang = 0;
 		
 		String header = "|"+centerString(8, "Id")+"|"+centerString(15, "Nama")+"|"+centerString(12, "Product")+"|"+centerString(18, "Description")+"|"+centerString(12, "Price")+"|";
-		String caption = "|"+centerString(header.length()-2, "LIST INVENTORY")+"|";
+		String caption = "|"+centerString(header.length()-2, "LIST GADAI")+"|";
 		String line = "";
 		String stripe = "";
 		
