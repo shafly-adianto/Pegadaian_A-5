@@ -1,4 +1,4 @@
-package assignment;
+package git_project;
 
 public class Barang {
 	public Barang() {
