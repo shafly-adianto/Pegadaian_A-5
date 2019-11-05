@@ -1,18 +1,20 @@
 package git_project;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 	static Main main = new Main();
 	static Scanner input = new Scanner(System.in);
 	Gadai gd = new Gadai();
+	ArrayList<Gadai> data_gadai = new ArrayList<>();
 	
 	public void inputGadai() {
+		input.nextLine();
 		String nama, productCategory, description;
-		int price;
+		int price, id;
 		boolean valid = false;
 	
 		do {
-			input.nextLine();
 			System.out.print("Nama :");
 			nama = input.nextLine();
 			
@@ -54,32 +56,94 @@ public class Main {
 				valid = true;
 			}
 		} while (!valid);
-		
+		id = data_gadai.size() +1;
+		data_gadai.add(new Gadai(nama, productCategory, description, "Gadai", id, price, price));
 	}
 	
+	public void showTebus() {
+		int id, biaya;
+		int checkId =0 , checkBiaya =0;
+		boolean valid;
+		
+		if (data_gadai.isEmpty()==true) {
+			System.out.println("Data gadai kosong, silahkan input gadai terlebih dulu.");
+		}
+		else {
+			for (Gadai gadai : data_gadai) {
+				System.out.println(gadai.getId()+" "+gadai.getProductCategory()+" "+ gadai.getPrice()+" "+gadai.getStatus()+" "+gadai.getHutang());
+			}
+			
+			do {
+				valid = false;
+				System.out.println("\nMasukkan id barang yang ingin di tebus :");
+				id = input.nextInt();
+				System.out.println("\nMasukkan biaya yang ingin di tebus :");
+				biaya = input.nextInt();
+				
+				for (Gadai gadai : data_gadai) {
+					if (gadai.getId()==id) {
+						checkId+=1;
+					}
+					if (biaya <= gadai.getHutang()) {
+						checkBiaya+=1;
+					}
+				}
+				
+				if (checkId > 0 && checkBiaya > 0) {
+					for (Gadai gadai : data_gadai) {
+						if (gadai.getId() == id) {
+							if (biaya <= gadai.getHutang()) {
+								gadai.setHutang(gadai.getHutang() - biaya);
+								if (gadai.getHutang()==0) {
+									gadai.setStatus("Lunas");
+								}
+								valid = true;
+							}
+						}
+					}
+				}
+				else if (checkId == 0 && checkBiaya > 0) {
+					System.out.println("\nId tidak ditemukkan");
+					valid = false;
+				}
+				else if (checkId > 0 && checkBiaya == 0) {
+					System.out.println("\nBiaya yang dimasukkan melebihi hutang");
+					valid = false;
+				}
+				else {
+					System.out.println("\nId tidak ditemukkan");
+					valid = false;
+				}
+				
+			} while (!valid);
+			
+			
+			for (Gadai gadai : data_gadai) {
+				System.out.println(gadai.getId()+" "+gadai.getProductCategory()+" "+ gadai.getPrice()+" "+gadai.getStatus()+" "+gadai.getHutang());
+			}
+		}
+	}
 
-	
 	public static void main(String[] args) {
 		input = new Scanner(System.in);
 		boolean valid;
-		
-		System.out.println("Pegadaian System: ");
-		System.out.println("1. Gadai");
-		System.out.println("2. Tebus");
-		System.out.println("3. Tampilkan Inventory");
-		System.out.println("4. Exit");
 		
 		while(true) {
 			do {
 				valid = true;
 				try {
+					System.out.println("Pegadaian System: ");
+					System.out.println("1. Gadai");
+					System.out.println("2. Tebus");
+					System.out.println("3. Tampilkan Inventory");
+					System.out.println("4. Exit");
 					System.out.print("\n\nMasukan nomor program: ");
 					int nomor = input.nextInt();
 					main.inputan(nomor);
 				}
 				catch(Exception e){
 					valid = false;
-					System.out.print("Format harus angka");
+					System.out.print("Sesuaikan Format Inputtan!!!");
 					input = new Scanner(System.in);
 				}
 			}while(!valid);
@@ -89,14 +153,15 @@ public class Main {
 	public void inputan(int nomor) {
 		switch(nomor) {
 		case 1:
+			System.out.println("Gadai");
 			main.inputGadai();
-			System.out.println(gd.getPrice());
 			break;
 		case 2:
-			System.out.print("Tebus");
+			System.out.println("Tebus");
+			main.showTebus();
 			break;
 		case 3:
-			System.out.print("Tampilkan Inventory");
+			System.out.println("Tampilkan Inventory");
 			break;
 		case 4:
 			System.out.print("Exit");
