@@ -1,4 +1,4 @@
-package git_project;
+package belajargit;
 import java.util.Scanner;
 
 public class Main {
@@ -51,5 +51,13 @@ public class Main {
 			break;
 		}
 		
+	}
+	public static void TampilGadai(List<Gadai> data_gadai){
+		for (Gadai g:data_gadai){
+			if (g.getStatus().equales("lunas")){
+				 System.out.format(Format, g.getId(), g.getNama(),g.getProductCategory(),g.getDescription(),g.getPrice());
+				System.out.format(Format, );
+			}
+		}
 	}
 }

@@ -1,4 +1,4 @@
-package git_project;
+package belajargit;
 
 public class Gadai {
 	private String nama, productCategory, description, status;
