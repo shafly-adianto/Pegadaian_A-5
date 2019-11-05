@@ -131,6 +131,8 @@ public class Main {
 				hitungBarang+=1;
 				System.out.println(gadai.getNama()+" "+gadai.getProductCategory()+" "+gadai.getDescription()+" "+gadai.getPrice());
 			}
+		}if (hitungBarang==0) {
+			System.out.println("Tidak ada barang gadai di inventori");
 		}
 		
 	}
